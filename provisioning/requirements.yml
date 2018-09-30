@@ -1,0 +1,8 @@
+- src: https://github.com/vterdunov/ansible-ruby-brightbox
+  name: ruby-brightbox
+
+- src: geerlingguy.ntp
+  name: ntp
+
+- src: geerlingguy.postgresql
+  name: postgresql

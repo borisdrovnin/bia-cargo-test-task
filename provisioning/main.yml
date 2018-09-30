@@ -1,0 +1,40 @@
+---
+- hosts: all
+  become: yes
+
+  pre_tasks:
+    - name: "Set env variables"
+      lineinfile:
+        dest: "/home/vagrant/.bashrc"
+        regexp: "^export {{ item.var }}="
+        line: "export {{ item.var }}={{ item.value }}"
+      with_items:
+        - { var: "RACK_ENV", value: "development" }
+        - { var: "LC_ALL", value: "en_US.UTF-8" }
+
+    - name: Install apt packages
+      apt:
+        name: '{{ item }}'
+        update_cache: yes
+      with_items:
+        - build-essential
+        - curl 
+
+    - name: Add autofollow
+      lineinfile:
+        dest: "/home/vagrant/.bashrc"
+        regexp: "^cd /vagrant"
+        line: "cd /vagrant"
+
+  post_tasks:
+    - name: 'Install ruby 2.5 dev'
+      apt:
+        name: '{{ item }}'
+        update_cache: no
+      with_items:
+        - ruby2.5-dev
+
+  roles:
+    - role: ntp
+    - role: ruby-brightbox
+    - role: postgresql

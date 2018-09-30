@@ -1,0 +1,12 @@
+---
+ruby_version: 2.5
+ruby_brightbox_bundler_version: 1.16.1
+
+postgresql_databases:
+  - name: cargo_db
+postgresql_users:
+  - name: cargo_user
+    password: 123456
+    db: cargo_db
+    priv: "ALL"
+    role_attr_flags: "CREATEDB"
