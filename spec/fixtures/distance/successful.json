@@ -1,0 +1,26 @@
+{
+    "destination_addresses": [
+        "Москва, Россия"
+    ],
+    "origin_addresses": [
+        "Санкт-Петербург, Россия"
+    ],
+    "rows": [
+        {
+            "elements": [
+                {
+                    "distance": {
+                        "text": "714 км",
+                        "value": 714382
+                    },
+                    "duration": {
+                        "text": "8 ч. 8 мин.",
+                        "value": 29306
+                    },
+                    "status": "OK"
+                }
+            ]
+        }
+    ],
+    "status": "OK"
+}

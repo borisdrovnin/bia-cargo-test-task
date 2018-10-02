@@ -6,11 +6,12 @@ Sequel.migration do
       Float :length
       Float :width
       Float :height
-      Float :total_weight
-      Float :total_volume
+      Float :weight
+      Float :volume
+      Float :distance
       Float :price
-      String :city_name_from
-      String :city_name_to
+      String :from
+      String :to
     end
   end
 
