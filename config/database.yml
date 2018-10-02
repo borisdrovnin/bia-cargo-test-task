@@ -1,0 +1,20 @@
+---
+default: &default
+  adapter: postgres
+  user: <%= ENV['CT_DB_USER'] || 'cargo_user' %>
+  password: <%= ENV['CT_DB_PASSWORD'] || '123456' %>
+  host: <%= ENV['CT_DB_HOST'] || 'localhost' %>
+  database: cargo_db
+
+development:
+  <<: *default
+
+production:
+  <<: *default
+
+test:
+  adapter: postgres
+  user: cargo_user_test
+  password: 123456
+  host: localhost
+  database: cargo_db_test
