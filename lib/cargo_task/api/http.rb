@@ -12,6 +12,11 @@ module CargoTask
           .call
           .to_json
       end
+
+      get '/top3' do
+        @top_origins = Services::Statistics.top_origins(3)
+        erb :top3
+      end
     end
   end
 end

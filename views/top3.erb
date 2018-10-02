@@ -1,0 +1,18 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Город</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @top_origins.each_with_index do |query, i| %>
+        <tr>
+          <th scope="row"><%= i+1 %></th>
+          <td><%= query.from %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

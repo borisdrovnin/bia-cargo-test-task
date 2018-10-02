@@ -4,6 +4,8 @@ ENV['API_KEY'] = 'test_key'
 ENV['CT_LOG_LEVEL'] = 'ERROR'
 require 'simplecov'
 SimpleCov.start
+require 'faker'
+require 'factory_bot'
 require 'webmock/rspec'
 require 'database_cleaner'
 require_relative '../app'
@@ -13,10 +15,13 @@ Dir[File.expand_path('./support/**/*.rb', __dir__)].each { |f| require f }
 RSpec.configure do |config|
   config.include DistanceAPISpecHelper
   config.include FixturesSpecHelper
+  config.include FactoryBot::Syntax::Methods
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
+
+    FactoryBot.find_definitions
   end
 
   config.around(:each) do |example|
