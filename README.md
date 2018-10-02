@@ -1,9 +1,9 @@
-#### Тестовое задание
+### Тестовое задание
 
 #### Установка и запуск
 
  - `vagrant up && vagrant ssh`
- - выполнить миграции `rake db:migrate`
+ - выполнить миграции `rake db:migrate` и `RACK_ENV=test rake db:migrate`
  - запустить тесты `bundle exec rspec`
  - запустить приложение `bundle exec ruby app.rb`
  
